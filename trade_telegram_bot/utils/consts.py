@@ -1,12 +1,13 @@
 from pathlib import PurePath
 from typing import Optional
 
+import tomli
 from pydantic import BaseSettings, Field, validator
 
 BASE_DIR = PurePath(__file__).parent.parent
 SECRETS_DIR = "secret_vars"
 ENV_FILE = ".env"
-
+PROJECT_FILE = "pyproject.toml"
 
 class EnvVars(BaseSettings):
     telegram_token: str = Field(..., env="TELEGRAM_TOKEN")
@@ -23,3 +24,7 @@ class EnvVars(BaseSettings):
     @validator("webhook_url", always=True)
     def validate_webhook_url(cls, value, values):
         return f"{values['webhook_host']}/{values['telegram_token']}"
+
+
+with open(BASE_DIR.parent.joinpath(PROJECT_FILE), "rb") as file:
+    pyproject_toml = tomli.load(file)

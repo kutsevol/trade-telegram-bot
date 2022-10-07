@@ -7,8 +7,7 @@ from aiogram.utils.executor import start_webhook
 
 from trade_telegram_bot.core.envs import env_vars
 from trade_telegram_bot.handlers.echo import echo
-
-VERSION = "Version 1.0.1"
+from trade_telegram_bot.utils.consts import pyproject_toml
 
 logging.basicConfig(level=logging.INFO)
 
@@ -18,7 +17,7 @@ dp.middleware.setup(LoggingMiddleware())
 
 
 async def on_startup(dp):
-    logging.info(f"{VERSION}: Set webhook...")
+    logging.info(f"{pyproject_toml['tool']['poetry']['version']}: Set webhook...")
     await bot.set_webhook(env_vars.webhook_url, drop_pending_updates=True)
 
 

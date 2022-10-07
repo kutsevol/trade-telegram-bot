@@ -1,11 +1,12 @@
 import logging
 
-from aiogram import Bot, types
+from aiogram import Bot
 from aiogram.contrib.middlewares.logging import LoggingMiddleware
 from aiogram.dispatcher import Dispatcher
 from aiogram.utils.executor import start_webhook
 
 from trade_telegram_bot.core.envs import env_vars
+from trade_telegram_bot.handlers.echo import echo
 
 VERSION = "Version 1.0.1"
 
@@ -16,18 +17,13 @@ dp = Dispatcher(bot)
 dp.middleware.setup(LoggingMiddleware())
 
 
-@dp.message_handler()
-async def echo(message: types.Message):
-    logging.info(f"{VERSION}: executing echo function...")
-    await message.answer(message.text)
-
-
 async def on_startup(dp):
     logging.info(f"{VERSION}: Set webhook...")
     await bot.set_webhook(env_vars.webhook_url, drop_pending_updates=True)
 
 
 if __name__ == '__main__':
+    dp.register_message_handler(echo)
     start_webhook(
         dispatcher=dp,
         webhook_path=f"/{env_vars.telegram_token}",

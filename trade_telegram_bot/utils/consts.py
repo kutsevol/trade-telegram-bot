@@ -9,6 +9,7 @@ SECRETS_DIR = "secret_vars"
 ENV_FILE = ".env"
 PROJECT_FILE = "pyproject.toml"
 
+
 class EnvVars(BaseSettings):
     telegram_token: str = Field(..., env="TELEGRAM_TOKEN")
     webhook_host: str = Field(..., env="WEBHOOK_HOST")

@@ -10,3 +10,11 @@ repos:
       - id: check-yaml
       - id: end-of-file-fixer
         exclude: LICENSE
+
+  - repo: local
+    hooks:
+      - id: black
+        name: black
+        entry: poetry run black --config pyproject.toml
+        types: [python]
+        language: system

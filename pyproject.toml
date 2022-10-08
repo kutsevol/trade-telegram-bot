@@ -19,6 +19,7 @@ pytest-cov = "^4.0.0"
 coverage = "^6.5.0"
 coverage-badge = "^1.1.0"
 black = {version = "^22.10.0", allow-prereleases = true}
+isort = {extras = ["colors"], version = "^5.10.1"}
 
 [tool.black]
 # https://github.com/psf/black
@@ -41,6 +42,18 @@ exclude = '''
     | venv
 )/
 '''
+
+[tool.isort]
+# https://github.com/timothycrosley/isort/
+py_version = 310
+line_length = 88
+known_typing = ["typing", "types", "typing_extensions", "mypy", "mypy_extensions"]
+sections = ["FUTURE", "TYPING", "STDLIB", "THIRDPARTY", "FIRSTPARTY", "LOCALFOLDER"]
+include_trailing_comma = true
+profile = "black"
+multi_line_output = 3
+indent = 4
+color_output = true
 
 [tool.pytest.ini_options]
 # https://docs.pytest.org/en/6.2.x/customize.html#pyproject-toml

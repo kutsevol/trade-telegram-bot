@@ -21,7 +21,7 @@ async def on_startup(dp):
     await bot.set_webhook(env_vars.webhook_url, drop_pending_updates=True)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     dp.register_message_handler(echo)
     start_webhook(
         dispatcher=dp,

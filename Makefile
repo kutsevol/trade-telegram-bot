@@ -19,10 +19,16 @@ install:
 .PHONY: update-dev-deps
 update-dev-deps:
 	poetry add -D pre-commit@latest pytest@latest pytest-html@latest pytest-cov@latest pytest-asyncio@latest coverage@latest coverage-badge@latest
+	poetry add -D --allow-prereleases black@latest
 
 .PHONY: pre-commit-install
 pre-commit-install:
 	poetry run pre-commit install
+
+#* Formatters
+.PHONY: codestyle
+codestyle:
+	poetry run black --config pyproject.toml ./
 
 #* Linting
 .PHONY: test

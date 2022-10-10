@@ -1,5 +1,6 @@
-from pathlib import PurePath
 from typing import Optional
+
+from pathlib import PurePath
 
 import tomli
 from pydantic import BaseSettings, Field, validator

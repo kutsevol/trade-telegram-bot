@@ -21,6 +21,7 @@ coverage-badge = "^1.1.0"
 black = {version = "^22.10.0", allow-prereleases = true}
 isort = {extras = ["colors"], version = "^5.10.1"}
 pyupgrade = "^3.0.0"
+bandit = "^1.7.4"
 
 [tool.black]
 # https://github.com/psf/black

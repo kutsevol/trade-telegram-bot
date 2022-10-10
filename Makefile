@@ -18,7 +18,7 @@ install:
 
 .PHONY: update-dev-deps
 update-dev-deps:
-	poetry add -D pre-commit@latest pytest@latest pytest-html@latest pytest-cov@latest pytest-asyncio@latest coverage@latest coverage-badge@latest "isort[colors]@latest" pyupgrade@latest bandit@latest
+	poetry add -D pre-commit@latest pytest@latest pytest-html@latest pytest-cov@latest pytest-asyncio@latest coverage@latest coverage-badge@latest "isort[colors]@latest" pyupgrade@latest bandit@latest safety@latest
 	poetry add -D --allow-prereleases black@latest
 
 .PHONY: pre-commit-install

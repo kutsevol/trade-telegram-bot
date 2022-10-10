@@ -57,6 +57,9 @@ multi_line_output = 3
 indent = 4
 color_output = true
 
+[tool.bandit]
+exclude_dirs = ["tests"]
+
 [tool.pytest.ini_options]
 # https://docs.pytest.org/en/6.2.x/customize.html#pyproject-toml
 # Directories that are not visited by pytest collector:

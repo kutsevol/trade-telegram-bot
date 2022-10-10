@@ -18,9 +18,10 @@ repos:
     hooks:
       - id: pyupgrade
         name: pyupgrade
-        entry: poetry run pyupgrade --py310-plus
+        entry: poetry run pyupgrade
         types: [ python ]
         language: system
+        args: [--py310-plus]
       - id: isort
         name: isort
         entry: poetry run isort --settings-path pyproject.toml

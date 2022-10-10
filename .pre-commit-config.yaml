@@ -18,3 +18,8 @@ repos:
         entry: poetry run black --config pyproject.toml
         types: [python]
         language: system
+      - id: isort
+        name: isort
+        entry: poetry run isort --settings-path pyproject.toml
+        types: [python]
+        language: system

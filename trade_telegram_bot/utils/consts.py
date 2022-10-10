@@ -1,5 +1,3 @@
-from typing import Optional
-
 from pathlib import PurePath
 
 import tomli
@@ -17,7 +15,7 @@ class EnvVars(BaseSettings):
     webapp_host: str = Field(..., env="WEBAPP_HOST")
     webapp_port: int = Field(..., env="WEBAPP_PORT")
 
-    webhook_url: Optional[str]
+    webhook_url: str | None
 
     class Config:
         case_sensitive = False

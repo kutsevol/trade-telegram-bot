@@ -1,6 +1,7 @@
+from unittest.mock import AsyncMock
+
 import pytest
 
-from unittest.mock import AsyncMock
 from trade_telegram_bot.bot import echo
 
 

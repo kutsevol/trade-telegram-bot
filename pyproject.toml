@@ -9,6 +9,8 @@ license = "MIT"
 python = "^3.10"
 aiogram = "^2.22.2"
 pydantic = {extras = ["dotenv"], version = "^1.10.2"}
+sentry-sdk = "^1.9.10"
+tomli = "^2.0.1"
 
 [tool.poetry.dev-dependencies]
 pre-commit = "^2.20.0"
@@ -24,7 +26,6 @@ pyupgrade = "^3.1.0"
 bandit = "^1.7.4"
 safety = "^2.3.1"
 flake8 = "^5.0.4"
-sentry-sdk = "^1.9.10"
 
 [tool.black]
 # https://github.com/psf/black

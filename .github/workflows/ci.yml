@@ -1,0 +1,17 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # https://github.com/marketplace/actions/automatic-requirements-txt-for-python-projects
+      - uses: actions/checkout@master
+      - name: Generate requirements.txt
+        id: selftest
+        uses: ryan-rozario/pipreqs-action-cpy@master
+        with:
+          PROJECT_PATH: trade_telegram_bot/
+          REQUIREMENT_PATH: requirements.txt

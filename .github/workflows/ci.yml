@@ -2,6 +2,12 @@ name: CI
 
 on: [push, pull_request]
 
+env:
+  TELEGRAM_TOKEN: 0123456789:abcdefghijklmnopqrstuvwxyzabcdefghi
+  WEBHOOK_HOST: https://example.host.com
+  WEBAPP_HOST: 255.254.253.252
+  WEBAPP_PORT: 1234
+
 jobs:
   build:
     runs-on: ubuntu-latest

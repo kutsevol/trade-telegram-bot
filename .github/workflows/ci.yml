@@ -24,4 +24,12 @@ jobs:
           python-version: '3.10'
           cache: 'poetry'
       - run: poetry install
-      - run: make check-codestyle
+
+      - name: Run style checks
+        run: make check-codestyle
+
+      - name: Run safety checks
+        run: make check-safety
+
+      - name: Run tests
+        run: make test

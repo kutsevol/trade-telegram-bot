@@ -11,6 +11,8 @@ aiogram = "^2.22.2"
 pydantic = {extras = ["dotenv"], version = "^1.10.2"}
 sentry-sdk = "^1.9.10"
 tomli = "^2.0.1"
+SQLAlchemy = "^1.4.42"
+mysqlclient = "^2.1.1"
 
 [tool.poetry.dev-dependencies]
 pre-commit = "^2.20.0"
@@ -26,11 +28,12 @@ pyupgrade = "^3.1.0"
 bandit = "^1.7.4"
 safety = "^2.3.1"
 flake8 = "^5.0.4"
+pyproject-flake8 = "^5.0.4"
 
 [tool.black]
 # https://github.com/psf/black
 target-version = ["py310"]
-line-length = 88
+line-length = 120
 color = true
 
 exclude = '''
@@ -52,7 +55,7 @@ exclude = '''
 [tool.isort]
 # https://github.com/timothycrosley/isort/
 py_version = 310
-line_length = 88
+line_length = 120
 known_typing = ["typing", "types", "typing_extensions", "mypy", "mypy_extensions"]
 sections = ["FUTURE", "TYPING", "STDLIB", "THIRDPARTY", "FIRSTPARTY", "LOCALFOLDER"]
 include_trailing_comma = true
@@ -60,6 +63,9 @@ profile = "black"
 multi_line_output = 3
 indent = 4
 color_output = true
+
+[tool.flake8]
+max-line-length = 120
 
 [tool.bandit]
 exclude_dirs = ["tests"]

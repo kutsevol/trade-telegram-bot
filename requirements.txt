@@ -1,4 +1,4 @@
-aiogram==2.22.2
+aiogram==2.23.1
 pydantic==1.10.2
-sentry_sdk==1.9.10
+sentry_sdk==1.11.1
 tomli==2.0.1

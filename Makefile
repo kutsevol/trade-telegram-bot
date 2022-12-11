@@ -42,8 +42,7 @@ test:
 check-codestyle:
 	poetry run isort --diff --check-only --settings-path pyproject.toml ./
 
-.PHONY: check-safety
+.PHONY: check-security
 check-safety:
 	poetry check
-	poetry run safety check --full-report
 	poetry run bandit -ll -r . -c pyproject.toml

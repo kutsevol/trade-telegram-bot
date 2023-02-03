@@ -1,7 +1,8 @@
 from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
 
-from trade_telegram_bot.core.envs import env_vars
+from trade_telegram_bot.core.envs import mysql_db_uri
 
-db_engine = create_engine(
-    url=f"mysql+mysqldb://{env_vars.db.user}:{env_vars.db.passwd}@{env_vars.db.host}/{env_vars.db.db_name}"
-)
+db_engine = create_engine(url=mysql_db_uri)
+
+session = sessionmaker(bind=db_engine)()

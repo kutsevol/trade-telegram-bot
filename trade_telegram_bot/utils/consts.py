@@ -7,6 +7,7 @@ BASE_DIR = PurePath(__file__).parent.parent
 SECRETS_DIR = "secret_vars"
 ENV_FILE = ".env"
 PROJECT_FILE = "pyproject.toml"
+TABLE_NAME = "sweepcast"
 
 
 class BaseVars(BaseSettings):

@@ -1,8 +1,8 @@
 [tool.poetry]
 name = "trade_telegram_bot"
-version = "1.0"
+version = "1.1.0"
 description = "Trading bot for the stock exchange on Telegram"
-authors = ["Artur Kutsevol"]
+authors = ["Artur Kutsevol arthur.kutsevol@gmail.com"]
 license = "MIT"
 
 [tool.poetry.dependencies]
@@ -16,6 +16,8 @@ mysqlclient = "^2.1.1"
 pandas = "^1.5.1"
 alembic = "^1.8.1"
 maya = "^0.6.1"
+alembic-autogen-check = "^1.1.1"
+redis = "^4.4.0"
 
 [tool.poetry.dev-dependencies]
 pre-commit = "^2.20.0"
@@ -38,22 +40,6 @@ pyproject-flake8 = "^5.0.4"
 target-version = ["py310"]
 line-length = 120
 color = true
-
-exclude = '''
-/(
-    \.git
-    | \.hg
-    | \.mypy_cache
-    | \.tox
-    | \.venv
-    | _build
-    | buck-out
-    | build
-    | dist
-    | env
-    | venv
-)/
-'''
 
 [tool.isort]
 # https://github.com/timothycrosley/isort/

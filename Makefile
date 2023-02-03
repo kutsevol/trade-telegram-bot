@@ -47,3 +47,8 @@ check-safety:
 	poetry check
 	poetry run safety check --full-report
 	poetry run bandit -ll -r . -c pyproject.toml
+
+#* Migration
+.PHONY: migrate
+migrate:
+    poetry run alembic upgrade head

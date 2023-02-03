@@ -11,6 +11,9 @@ env:
   DB_USERNAME: admin
   DB_PASSWORD: password
   DB_NAME: database_name
+  REDIS_HOST: example.host.com
+  REDIS_PORT: 1234
+  REDIS_PASSWORD: password
 
 jobs:
   build:

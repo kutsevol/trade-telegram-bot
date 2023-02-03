@@ -51,4 +51,4 @@ check-safety:
 #* Migration
 .PHONY: migrate
 migrate:
-    poetry run alembic upgrade head
+	poetry run alembic upgrade head

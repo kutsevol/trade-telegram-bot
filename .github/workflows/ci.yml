@@ -7,6 +7,10 @@ env:
   WEBHOOK_HOST: https://example.host.com
   WEBAPP_HOST: 255.254.253.252
   WEBAPP_PORT: 1234
+  DB_HOST: example.host.com
+  DB_USERNAME: admin
+  DB_PASSWORD: password
+  DB_NAME: database_name
 
 jobs:
   build:

@@ -8,6 +8,7 @@ SECRETS_DIR = "secret_vars"
 ENV_FILE = ".env"
 PROJECT_FILE = "pyproject.toml"
 TABLE_NAME = "sweepcast"
+REDIS_KEY = "hashes"
 
 
 class BaseVars(BaseSettings):
@@ -35,10 +36,45 @@ class TelegramVars(BaseVars):
         return f"{values['webhook_host']}/{values['token']}"
 
 
+class CacheVars(BaseVars):
+    host: str = Field(..., env="REDIS_HOST")
+    port: str = Field(..., env="REDIS_PORT")
+    passwd: str = Field(..., env="REDIS_PASSWORD")
+
+
 class EnvVars:
     telegram: TelegramVars = TelegramVars()
     db: DBVars = DBVars()
+    cache: CacheVars = CacheVars()
 
 
 with open(BASE_DIR.parent.joinpath(PROJECT_FILE), "rb") as file:
     pyproject_toml = tomli.load(file)
+
+PROJECT_VERSION = pyproject_toml["tool"]["poetry"]["version"]
+
+
+name_cols_mapper = {
+    "Date Timestamp": "date_timestamp",
+    "Ticker": "ticker",
+    "Activity Type": "activity_type",
+    "Put or Call": "put_or_call",
+    "Sentiment": "sentiment",
+    "SweepScore": "sweep_score",
+    "Vol/OI Ratio": "vol_oi_ratio",
+    "Strike Price": "strike_price",
+    "Expiration": "expiration",
+    "Premium": "premium",
+    "Details": "details",
+}
+
+date_format_mapper = {"date_timestamp": "%m/%d %I:%M %p", "expiration": "%m/%d/%Y"}
+
+split_values_mapper = {
+    "vol_oi_ratio": {"delimiter": "/", "cols": ["volume", "open_interest"], "dtypes": [int, int]},
+    "details": {"delimiter": "@", "cols": ["count", "price"], "dtypes": [int, float]},
+}
+
+dtypes_mapper = {
+    "id": str,
+}

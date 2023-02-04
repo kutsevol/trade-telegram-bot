@@ -1,0 +1,36 @@
+name: prod
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  TELEGRAM_TOKEN: 0123456789:abcdefghijklmnopqrstuvwxyzabcdefghi
+  WEBHOOK_HOST: https://example.host.com
+  WEBAPP_HOST: 255.254.253.252
+  WEBAPP_PORT: 1234
+  DB_HOST: example.host.com
+  DB_USERNAME: admin
+  DB_PASSWORD: password
+  DB_NAME: database_name
+  REDIS_HOST: example.host.com
+  REDIS_PORT: 1234
+  REDIS_PASSWORD: password
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # https://github.com/marketplace/actions/automatic-requirements-txt-for-python-projects
+      - uses: actions/checkout@master
+      - name: Generate requirements.txt
+        id: selftest
+        uses: ryan-rozario/pipreqs-action-cpy@master
+        with:
+          PROJECT_PATH: trade_telegram_bot/
+          REQUIREMENT_PATH: requirements.txt
+
+      - name: Apply migrations
+        run: make migrate

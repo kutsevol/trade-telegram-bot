@@ -6,6 +6,7 @@ from pydantic import BaseSettings, Field, validator
 BASE_DIR = PurePath(__file__).parent.parent
 SECRETS_DIR = "secret_vars"
 ENV_FILE = ".env"
+ALEMBIC_CONFIG_FILE = "alembic.ini"
 PROJECT_FILE = "pyproject.toml"
 TABLE_NAME = "sweepcast"
 REDIS_KEY = "hashes"

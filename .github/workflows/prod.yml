@@ -10,10 +10,10 @@ env:
   WEBHOOK_HOST: https://example.host.com
   WEBAPP_HOST: 255.254.253.252
   WEBAPP_PORT: 1234
-  DB_HOST: example.host.com
-  DB_USERNAME: admin
-  DB_PASSWORD: password
-  DB_NAME: database_name
+  DB_HOST: "${{ secrets.DB_HOST }}"
+  DB_USERNAME: "${{ secrets.DB_USERNAME }}"
+  DB_PASSWORD: "${{ secrets.DB_PASSWORD }}"
+  DB_NAME: "${{ secrets.DB_NAME }}"
   REDIS_HOST: example.host.com
   REDIS_PORT: 1234
   REDIS_PASSWORD: password

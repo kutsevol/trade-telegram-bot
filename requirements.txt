@@ -1,7 +1,0 @@
-aiogram==2.24
-pandas==1.5.3
-pydantic==1.10.4
-redis==4.4.2
-sentry_sdk==1.14.0
-SQLAlchemy==2.0.1
-tomli==2.0.1

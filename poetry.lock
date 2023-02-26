@@ -1615,7 +1615,7 @@ files = [
 name = "pymysql"
 version = "1.0.2"
 description = "Pure Python MySQL Driver"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 files = [
@@ -2689,4 +2689,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "33d7eba7b6052d9a7d7aa590efdb1dc9ac3160bf72c8e05f1a9d87891ecdf6bf"
+content-hash = "c2859dcd5802771f7ad57b0e6c746c3d10a78207573f3bb1a5e12bcbbf9e4a1d"

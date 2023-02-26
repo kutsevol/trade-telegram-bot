@@ -24,14 +24,6 @@ jobs:
 
     steps:
       # https://github.com/marketplace/actions/automatic-requirements-txt-for-python-projects
-      - uses: actions/checkout@master
-      - name: Generate requirements.txt
-        id: selftest
-        uses: ryan-rozario/pipreqs-action-cpy@master
-        with:
-          PROJECT_PATH: trade_telegram_bot/
-          REQUIREMENT_PATH: requirements.txt
-
       - uses: actions/checkout@v3
       - name: Install poetry
         run: pipx install poetry

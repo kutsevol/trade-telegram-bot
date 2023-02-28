@@ -13,6 +13,11 @@ logging.basicConfig(level=logging.INFO)
 
 
 async def on_startup(dp):
+    """
+    It sets the webhook for the bot
+
+    :param dp: Dispatcher object
+    """
     logging.info(f"{PROJECT_VERSION}: Set webhook")
     await bot.set_webhook(env_vars.telegram.webhook_url, drop_pending_updates=True)
 

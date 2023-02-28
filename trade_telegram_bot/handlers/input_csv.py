@@ -12,6 +12,13 @@ logging.basicConfig(level=logging.INFO)
 
 
 async def processing_input_csv(message: types.Message) -> None:
+    """
+    We load the file from the user, extract the data from the csv, transform the data, and load the
+    data to the database
+
+    :param message: types.Message - this is the message that the user sent to the bot
+    :type message: types.Message
+    """
     logging.info(f"{PROJECT_VERSION}: Reading input file")
     file_obj = await load_file_from_user(message)
 

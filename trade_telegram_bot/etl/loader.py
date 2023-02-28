@@ -11,5 +11,11 @@ logging.basicConfig(level=logging.INFO)
 
 @redis_cache
 def load_df_to_db(df: pd.DataFrame) -> None:
+    """
+    Load a dataframe to a database table
+
+    :param df: pd.DataFrame - the dataframe to be saved to the database
+    :type df: pd.DataFrame
+    """
     logging.info(f"{PROJECT_VERSION}: Prepare to save {df.shape[0]} rows of data")
     df.to_sql(TABLE_NAME, db_engine, if_exists="append", index=False)

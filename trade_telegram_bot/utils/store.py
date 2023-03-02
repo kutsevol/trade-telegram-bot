@@ -1,5 +1,5 @@
 from trade_telegram_bot.core.cache import redis_client
-from trade_telegram_bot.utils.consts import REDIS_KEY
+from trade_telegram_bot.utils.consts import REDIS_EXPIRE_TIME, REDIS_KEY
 
 
 def redis_cache(func):
@@ -20,5 +20,6 @@ def redis_cache(func):
         func(df)
         if not df.empty:
             redis_client.sadd(REDIS_KEY, *set(df.id))
+            redis_client.expire(REDIS_KEY, REDIS_EXPIRE_TIME)
 
     return wrapper

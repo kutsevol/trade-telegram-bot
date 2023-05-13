@@ -7,7 +7,7 @@ from sqlalchemy import select
 from tests import TOKEN
 from tests.data.types import MESSAGE_WITH_DOCUMENT
 from trade_telegram_bot.bot import processing_input_csv
-from trade_telegram_bot.models.sweepcast import Sweepcast
+from trade_telegram_bot.models import Sweepcast
 from trade_telegram_bot.utils.consts import REDIS_KEY
 
 

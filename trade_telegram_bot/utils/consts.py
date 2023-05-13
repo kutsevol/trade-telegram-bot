@@ -8,7 +8,6 @@ SECRETS_DIR = "secret_vars"
 ENV_FILE = ".env"
 ALEMBIC_CONFIG_FILE = "alembic.ini"
 PROJECT_FILE = "pyproject.toml"
-TABLE_NAME = "sweepcast"
 REDIS_KEY = "hashes"
 REDIS_EXPIRE_TIME = 60 * 60 * 24  # 1 day
 

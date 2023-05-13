@@ -15,9 +15,11 @@ config.set_main_option("sqlalchemy.url", mysql_db_uri)
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
+from trade_telegram_bot.models import Option, Sweepcast
+
 # add your model's MetaData object here
 # for 'autogenerate' support
-from trade_telegram_bot.models.sweepcast import Base
+from trade_telegram_bot.models.base import Base
 
 target_metadata = Base.metadata
 

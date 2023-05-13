@@ -70,7 +70,14 @@ name_cols_mapper = {
     "Details": "details",
 }
 
-date_format_mapper = {"date_timestamp": "%m/%d %I:%M %p", "expiration": "%m/%d/%Y"}
+date_format_mapper = [
+    {
+        "col": "date_timestamp",
+        "format": "%m/%d %I:%M %p",
+        "is_replace_year": True,
+    },
+    {"col": "expiration", "format": "%m/%d/%Y", "is_replace_year": False},
+]
 
 split_values_mapper = {
     "vol_oi_ratio": {"delimiter": "/", "cols": ["volume", "open_interest"], "dtypes": [int, int]},
